@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rickandmortyapi-service
+spec:
+  selector:
+    app: rickandmortyapi
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

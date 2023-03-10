@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rickandmortyapi
+  labels:
+    app: rickandmortyapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rickandmortyapi
+  template:
+    metadata:
+      labels:
+        app: rickandmortyapi
+    spec:
+      containers:
+      - name: rickandmortyapi
+        image: docker.io/rotema/rickandmortyapi:v1
+        ports:
+        - containerPort: 80

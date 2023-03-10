@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "rickandmortyapi.fullname" . }}
+  labels:
+    {{- include "rickandmortyapi.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "rickandmortyapi.selectorLabels" . | nindent 4 }}
